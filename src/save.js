@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,10 +15,15 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save({ attributes }) {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Wp Url Gallery – hello from the saved content!' }
-		</p>
+		<div
+			className="grid_container"
+			style={{ display: "grid", gridTemplateColumns: "auto auto" }}
+		>
+			{attributes.images.map((url) => {
+				return <img className="gallery_image" src={url} />;
+			})}
+		</div>
 	);
 }

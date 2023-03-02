@@ -7,3 +7,26 @@
 .wp-block-create-block-wp_url_gallery {
 	border: 1px dotted #f00;
 }
+
+textarea {
+	padding: 5px;
+	width: 100%;
+	height: 200px;
+}
+
+.control_container {
+	padding: 10px;
+}
+
+.grid_container {
+	width: 100%;
+	height: auto;
+	display: grid;
+	gap: 5px 5px;
+}
+
+.gallery_image {
+	object-fit: cover !important;
+	height: 100% !important;
+	width: 100% !important;
+}
