@@ -21,10 +21,11 @@
 }
 
 .gallery_image {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  height: 100% !important;
+  max-height: 300px;
+  width: 100% !important;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WP Url Gallery
  * Description:       Gallery with URL inserted images
- * Requires at least: 6.1
+ * Requires at least: 6.0
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            The WordPress Contributors

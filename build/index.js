@@ -68,16 +68,26 @@ function Edit(_ref) {
       display: "grid",
       gridTemplateColumns: "50% 50%"
     }
-  }, imageUrls.map(url => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      className: "gallery_image",
-      src: url
-    });
+  }, imageUrls.map((url, index) => {
+    if (index == imageUrls.length - 1 && imageUrls.length % 2 != 0) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "gallery_image",
+        src: url,
+        style: {
+          gridColumnStart: -3,
+          gridColumnEnd: -1
+        }
+      });
+    } else {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "gallery_image",
+        src: url
+      });
+    }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "control_container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
     onChange: new_Value => {
-      console.log();
       setImageUrls(new_Value.target.value.trim().split("\n"));
     },
     value: imageUrls.join("\r\n")
@@ -186,13 +196,24 @@ function save(_ref) {
     className: "grid_container",
     style: {
       display: "grid",
-      gridTemplateColumns: "auto auto"
+      gridTemplateColumns: "50% 50%"
     }
-  }, attributes.images.map(url => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      className: "gallery_image",
-      src: url
-    });
+  }, attributes.images.map((url, index) => {
+    if (index == attributes.images.length - 1 && attributes.images.length % 2 != 0) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "gallery_image",
+        src: url,
+        style: {
+          gridColumnStart: -3,
+          gridColumnEnd: -1
+        }
+      });
+    } else {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "gallery_image",
+        src: url
+      });
+    }
   }));
 }
 

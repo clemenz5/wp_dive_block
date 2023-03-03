@@ -37,31 +37,37 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...useBlockProps()}>
-		<div  className="grid_container" style={{display: "grid", gridTemplateColumns: "50% 50%"}}>
-				{imageUrls.map((url) => {
-					return <img className="gallery_image" src={url} />;
+			<div
+				className="grid_container"
+				style={{ display: "grid", gridTemplateColumns: "50% 50%" }}
+			>
+				{imageUrls.map((url, index) => {
+					if (index == imageUrls.length - 1 && imageUrls.length % 2 != 0) {
+						return <img className="gallery_image" src={url} style={{gridColumnStart: -3, gridColumnEnd: -1}}/>;
+					} else {
+						return <img className="gallery_image" src={url} />;
+					}
 				})}
 			</div>
-			
-				<InspectorControls>
-					<div className="control_container">
-						<textarea
-							onChange={(new_Value) => {
-								console.log();
-								setImageUrls(new_Value.target.value.trim().split("\n"));
-							}}
-							value={imageUrls.join("\r\n")}
-						></textarea>
-						<br />
-						<button
-							onClick={() => {
-								setAttributes({images: imageUrls});
-							}}
-						>
-							Save
-						</button>
-					</div>
-				</InspectorControls>
+
+			<InspectorControls>
+				<div className="control_container">
+					<textarea
+						onChange={(new_Value) => {
+							setImageUrls(new_Value.target.value.trim().split("\n"));
+						}}
+						value={imageUrls.join("\r\n")}
+					></textarea>
+					<br />
+					<button
+						onClick={() => {
+							setAttributes({ images: imageUrls });
+						}}
+					>
+						Save
+					</button>
+				</div>
+			</InspectorControls>
 		</div>
 	);
 }

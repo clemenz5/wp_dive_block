@@ -31,6 +31,7 @@ textarea {
   -o-object-fit: cover !important;
      object-fit: cover !important;
   height: 100% !important;
+  max-height: 300px;
   width: 100% !important;
 }
 

@@ -19,10 +19,20 @@ export default function save({ attributes }) {
 	return (
 		<div
 			className="grid_container"
-			style={{ display: "grid", gridTemplateColumns: "auto auto" }}
+			style={{ display: "grid", gridTemplateColumns: "50% 50%" }}
 		>
-			{attributes.images.map((url) => {
-				return <img className="gallery_image" src={url} />;
+			{attributes.images.map((url, index) => {
+				if (index == attributes.images.length - 1 && attributes.images.length % 2 != 0) {
+					return (
+						<img
+							className="gallery_image"
+							src={url}
+							style={{ gridColumnStart: -3, gridColumnEnd: -1 }}
+						/>
+					);
+				} else {
+					return <img className="gallery_image" src={url} />;
+				}
 			})}
 		</div>
 	);
