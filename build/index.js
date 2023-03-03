@@ -61,7 +61,6 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const [imageUrls, setImageUrls] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.images);
-  console.log(imageUrls.join("\r\n"));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid_container",
     style: {
@@ -69,8 +68,12 @@ function Edit(_ref) {
       gridTemplateColumns: "50% 50%"
     }
   }, imageUrls.map((url, index) => {
+    if (!(url.startsWith("http://") || url.startsWith("https://"))) {
+      url = "https://" + url;
+    }
     if (index == imageUrls.length - 1 && imageUrls.length % 2 != 0) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        key: imageUrls.length,
         className: "gallery_image",
         src: url,
         style: {
@@ -80,6 +83,7 @@ function Edit(_ref) {
       });
     } else {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        key: index,
         className: "gallery_image",
         src: url
       });
@@ -199,8 +203,12 @@ function save(_ref) {
       gridTemplateColumns: "50% 50%"
     }
   }, attributes.images.map((url, index) => {
+    if (!(url.startsWith("http://") || url.startsWith("https://"))) {
+      url = "https://" + url;
+    }
     if (index == attributes.images.length - 1 && attributes.images.length % 2 != 0) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        key: attributes.images.length,
         className: "gallery_image",
         src: url,
         style: {
@@ -210,6 +218,7 @@ function save(_ref) {
       });
     } else {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        key: index,
         className: "gallery_image",
         src: url
       });

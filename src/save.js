@@ -22,16 +22,23 @@ export default function save({ attributes }) {
 			style={{ display: "grid", gridTemplateColumns: "50% 50%" }}
 		>
 			{attributes.images.map((url, index) => {
-				if (index == attributes.images.length - 1 && attributes.images.length % 2 != 0) {
+				if (!(url.startsWith("http://") || url.startsWith("https://"))) {
+					url = "https://" + url;
+				}
+				if (
+					index == attributes.images.length - 1 &&
+					attributes.images.length % 2 != 0
+				) {
 					return (
 						<img
+							key={attributes.images.length}
 							className="gallery_image"
 							src={url}
 							style={{ gridColumnStart: -3, gridColumnEnd: -1 }}
 						/>
 					);
 				} else {
-					return <img className="gallery_image" src={url} />;
+					return <img key={index} className="gallery_image" src={url} />;
 				}
 			})}
 		</div>

@@ -33,7 +33,6 @@ import "./editor.scss";
  */
 export default function Edit({ attributes, setAttributes }) {
 	const [imageUrls, setImageUrls] = useState(attributes.images);
-	console.log(imageUrls.join("\r\n"));
 
 	return (
 		<div {...useBlockProps()}>
@@ -42,10 +41,20 @@ export default function Edit({ attributes, setAttributes }) {
 				style={{ display: "grid", gridTemplateColumns: "50% 50%" }}
 			>
 				{imageUrls.map((url, index) => {
+					if (!(url.startsWith("http://") || url.startsWith("https://"))) {
+						url = "https://" + url;
+					}
 					if (index == imageUrls.length - 1 && imageUrls.length % 2 != 0) {
-						return <img className="gallery_image" src={url} style={{gridColumnStart: -3, gridColumnEnd: -1}}/>;
+						return (
+							<img
+								key={imageUrls.length}
+								className="gallery_image"
+								src={url}
+								style={{ gridColumnStart: -3, gridColumnEnd: -1 }}
+							/>
+						);
 					} else {
-						return <img className="gallery_image" src={url} />;
+						return <img key={index} className="gallery_image" src={url} />;
 					}
 				})}
 			</div>
