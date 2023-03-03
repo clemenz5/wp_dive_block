@@ -25,6 +25,7 @@ textarea {
   height: auto;
   display: grid;
   gap: 5px 5px;
+  white-space: pre-wrap;
 }
 
 .gallery_image {

@@ -62,8 +62,9 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<div className="control_container">
 					<textarea
+					rows="10" 
 						onChange={(new_Value) => {
-							setImageUrls(new_Value.target.value.trim().split("\n"));
+							setImageUrls(new_Value.target.value.split("\n"));
 						}}
 						value={imageUrls.join("\r\n")}
 					></textarea>

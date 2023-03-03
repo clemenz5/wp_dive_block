@@ -91,8 +91,9 @@ function Edit(_ref) {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "control_container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
+    rows: "10",
     onChange: new_Value => {
-      setImageUrls(new_Value.target.value.trim().split("\n"));
+      setImageUrls(new_Value.target.value.split("\n"));
     },
     value: imageUrls.join("\r\n")
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
